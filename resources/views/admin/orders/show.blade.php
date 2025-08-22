@@ -52,7 +52,7 @@
                             @if($order->notes)
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <p><strong>Catatan:</strong> {{ $order->notes }}</p>
+                                        <p><strong>Alamat :</strong> {{ $order->notes }}</p>
                                     </div>
                                 </div>
                             @endif

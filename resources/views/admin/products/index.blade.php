@@ -31,9 +31,9 @@
                             <tbody>
                                 @forelse($products as $product)
                                     <tr>
-                                        <td>
+                                        <td>    
                                             @if($product->image)
-                                                <img src="{{ asset('storage/' . $product->image) }}" width="60" height="60" class="rounded">
+                                                <img src="{{ asset('images/' . $product->image) }}" width="60" height="60" class="rounded">
                                             @else
                                                 <div class="bg-light d-flex align-items-center justify-content-center rounded" style="width: 60px; height: 60px;">
                                                     <i class="fas fa-glass-water text-muted"></i>

@@ -52,7 +52,7 @@
                             <div class="row align-items-center border-bottom py-3">
                                 <div class="col-md-2">
                                     @if($item['image'])
-                                        <img src="{{ asset('storage/' . $item['image']) }}" class="img-fluid rounded">
+                                        <img src="{{ asset('images/' . $item['image']) }}" class="img-fluid rounded">
                                     @else
                                         <div class="bg-light p-3 rounded text-center">
                                             <i class="fas fa-glass-water fa-2x text-muted"></i>

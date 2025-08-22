@@ -10,7 +10,7 @@
 
             <!-- Video Background -->
             <video autoplay muted loop playsinline class="position-absolute top-0 start-0 w-100 h-100" style="object-fit: cover; z-index:0;">
-                <source src="{{ asset('storage/videoplayback.webm') }}" type="video/mp4">
+                <source src="{{ asset('images/videoplayback.webm') }}" type="video/mp4">
                 Browser Anda tidak mendukung video.
             </video>
 
@@ -83,7 +83,7 @@
                     @php
                         $imageFile = $index == 0 ? '1.png' : '2.png';
                     @endphp
-                    <img src="{{ asset('storage/' . $imageFile) }}" 
+                    <img src="{{ asset('images/' . $imageFile) }}" 
                          class="card-img-top bg-light" 
                          style="height:250px; object-fit:contain; transition: transform 0.3s;" 
                          onmouseover="this.style.transform='scale(1.05)';" 

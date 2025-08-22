@@ -20,7 +20,7 @@
  <div class="container">
         <!-- Logo -->
         <a class="navbar-brand me-4" href="{{ url('/') }}">
-            <img src="{{ asset('storage/logo.png') }}" alt="Drink Shop" height="90">
+            <img src="{{ asset('images/logo.png') }}" alt="Drink Shop" height="90">
         </a>
 
         <!-- Toggle button -->
