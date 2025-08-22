@@ -1,6 +1,7 @@
 # Drink Shop 🍹
 
-Aplikasi web sederhana untuk memesan minuman segar secara online.
+Aplikasi web sederhana untuk memesan minuman segar secara online.  
+Nikmati sensasi minuman segar dengan rasa nikmat, segar, dan mudah dibawa kemana saja.
 
 ---
 
