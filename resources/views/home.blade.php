@@ -6,7 +6,7 @@
 <div class="row mb-4 justify-content-center">
     <div class="col-md-10">
         <div class="jumbotron p-5 rounded-4 mb-4 text-center text-white shadow position-relative overflow-hidden" 
-             style="height: 400px; border-radius: 20px;">
+             style="height: 400px; border-radius: 20px;" id="jumbotron">
 
             <!-- Video Background -->
             <video autoplay muted loop playsinline class="position-absolute top-0 start-0 w-100 h-100" style="object-fit: cover; z-index:0;">
@@ -19,11 +19,15 @@
 
             <!-- Konten Jumbotron -->
             <div class="position-relative" style="z-index:2;">
-                <h1 class="display-4 fw-bold">Selamat Datang di <span style="color:#FFD700;">MiloBoom</span></h1>
-                <p class="lead mb-4">Minuman segar pilihan terbaik untuk menemani hari Anda</p>
-                <a href="#produkContainer" 
+                <h1 id="jumbotronTitle" class="display-4 fw-bold" style="opacity:0; transform:translateY(30px);">
+                    Selamat Datang di <span style="color:#FFD700;">MiloBoom</span>
+                </h1>
+                <p id="jumbotronSub" class="lead mb-4" style="opacity:0; transform:translateY(30px);">
+                    Minuman segar pilihan terbaik untuk menemani hari Anda
+                </p>
+                <a id="jumbotronBtn" href="#produkContainer" 
                    class="btn btn-lg rounded-4 px-4" 
-                   style="background-color:#FFD700; color:#8B4513; font-weight:bold; transition:0.3s;"
+                   style="background-color:#FFD700; color:#8B4513; font-weight:bold; transition:0.3s; opacity:0; transform:translateY(30px);"
                    onmouseover="this.style.backgroundColor='#FFC107'; this.style.color='white';"
                    onmouseout="this.style.backgroundColor='#FFD700'; this.style.color='#8B4513';">
                     <i class="fas fa-shopping-bag me-2"></i> Lihat Produk
@@ -149,7 +153,6 @@
     </div>
 </div>
 
-<!-- Toast Alert -->
 <!-- Toast Alert Tengah Layar -->
 <div class="position-fixed top-50 start-50 translate-middle p-3" style="z-index: 1080">
     <div id="cartAlert" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
@@ -162,17 +165,19 @@
     </div>
 </div>
 
-
 @endsection
 
 @push('scripts')
 <script>
 $(document).ready(function() {
-    // Fade-in smooth
-    $('#jumbotron, #produkContainer, #produkRow').css({'opacity':0, 'transform':'translateY(20px)'}).animate(
-        {opacity:1, top:0}, 400
-    );
-    $('#produkRow .card').css({'opacity':0, 'transform':'translateY(20px)'}).animate({opacity:1, top:0}, 400);
+    // Animasi teks di jumbotron (lebih santai)
+    $("#jumbotronTitle").animate({opacity:1, marginTop:0}, 2500);
+    $("#jumbotronSub").delay(1000).animate({opacity:1, marginTop:0}, 1000);
+    $("#jumbotronBtn").delay(2000).animate({opacity:1, marginTop:0}, 1000);
+
+    // Animasi fade-in produk
+    $('#jumbotron, #produkContainer, #produkRow').css({'opacity':0}).animate({opacity:1}, 1000);
+    $('#produkRow .card').css({'opacity':0}).animate({opacity:1}, 1000);
 
     // Add to cart modal
     $('.add-to-cart').click(function() {
@@ -197,7 +202,6 @@ $(document).ready(function() {
                 var toast = new bootstrap.Toast(toastEl);
                 toast.show();
 
-                // Optional: update jumlah keranjang di navbar
                 if(response.cart_count !== undefined){
                     $('#cartCount').text(response.cart_count);
                 }
@@ -209,10 +213,4 @@ $(document).ready(function() {
     });
 });
 </script>
-
-<style>
-html {
-    scroll-behavior: smooth;
-}
-</style>
 @endpush
