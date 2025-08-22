@@ -152,8 +152,8 @@
             <div class="col-md-4 mb-4">
                 <h5 class="fw-bold">Jadwal Operasional</h5>
                 <ul class="list-unstyled small">
-                    <li>Senin - Jumat: 08.00 - 20.00</li>
-                    <li>Sabtu: 09.00 - 18.00</li>
+                    <li>Senin - Jumat: 07.00 - 22.00</li>
+                    <li>Sabtu: 09.00 - 22.00</li>
                     <li>Minggu: Tutup</li>
                 </ul>
             </div>
