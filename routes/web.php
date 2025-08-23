@@ -6,6 +6,8 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\OrderStatusController;
+
 
 // Public routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -20,6 +22,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/cart/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
     Route::post('/checkout', [CartController::class, 'checkout'])->name('checkout');
     Route::get('/order-success/{id}', [CartController::class, 'orderSuccess'])->name('order.success');
+    Route::get('/orders/status', [OrderStatusController::class, 'index'])->name('orders.status');
+
 });
 
 // Admin routes
