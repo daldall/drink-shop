@@ -51,8 +51,10 @@
                             @endphp
                             <div class="row align-items-center border-bottom py-3">
                                 <div class="col-md-2">
-                                    @if($item['image'])
-                                        <img src="{{ asset('images/' . $item['image']) }}" class="img-fluid rounded">
+                                    @if(!empty($item['image']))
+                                        <img src="{{ asset('storage/' . $item['image']) }}" 
+                                             class="img-fluid rounded" 
+                                             alt="{{ $item['name'] }}">
                                     @else
                                         <div class="bg-light p-3 rounded text-center">
                                             <i class="fas fa-glass-water fa-2x text-muted"></i>
@@ -129,18 +131,17 @@
 
                             <!-- Field Alamat dengan tombol Tata Cara -->
                             <div class="mb-3">
-                            <label for="notes" class="form-label d-flex align-items-center">
-    Alamat
-    <!-- Tombol Tata Cara alamat -->
-    <button type="button" 
-            class="btn btn-sm btn-light p-1 rounded-circle ms-2" 
-            style="width:28px; height:28px; font-size:14px;"
-            data-bs-toggle="modal" 
-            data-bs-target="#alamatModal"
-            title="Tata Cara">
-        <i class="fas fa-info-circle"></i>
-    </button>
-</label>
+                                <label for="notes" class="form-label d-flex align-items-center">
+                                    Alamat
+                                    <button type="button" 
+                                            class="btn btn-sm btn-light p-1 rounded-circle ms-2" 
+                                            style="width:28px; height:28px; font-size:14px;"
+                                            data-bs-toggle="modal" 
+                                            data-bs-target="#alamatModal"
+                                            title="Tata Cara">
+                                        <i class="fas fa-info-circle"></i>
+                                    </button>
+                                </label>
 
                                 <textarea class="form-control" id="notes" name="notes" rows="3" placeholder="Tambahkan alamat pengiriman Anda..." required></textarea>
                             </div>

@@ -33,10 +33,11 @@
 
                         @foreach($order->orderItems as $item)
                             <div class="d-flex align-items-center mb-3 border-bottom pb-2">
-                                <img src="{{ asset('images/' . $item->product->image) }}" 
-                                     alt="{{ $item->product->name }}" 
-                                     class="rounded-3 me-3" 
-                                     style="width:60px; height:60px; object-fit:cover;">
+                            <img src="{{ Storage::url($item->product->image) }}" 
+     alt="{{ $item->product->name }}" 
+     class="rounded-3 me-3" 
+     style="width:60px; height:60px; object-fit:cover;">
+
 
                                 <div class="flex-grow-1">
                                     <p class="mb-1 fw-bold">{{ $item->product->name }}</p>
