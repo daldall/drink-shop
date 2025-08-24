@@ -7,125 +7,161 @@
         <title>{{ config('app.name', 'Drink Shop') }}</title>
         <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 
-
         <!-- Bootstrap & FontAwesome -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+        <style>
+            /* Navbar Hover */
+            .nav-link-hover {
+                color: #333;
+                padding: 8px 0;
+                font-weight: 500;
+                text-decoration: none;
+                display: inline-block;
+                border-bottom: 2px solid transparent;
+                transition: 0.3s;
+            }
+            .nav-link-hover:hover {
+                color: #8B4513;
+                border-bottom: 2px solid #8B4513;
+            }
+
+            /* Dropdown Hover */
+            .dropdown-item-hover {
+                background-color: transparent;
+                color: #333;
+                padding: 6px 12px;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                transition: 0.3s;
+            }
+            .dropdown-item-hover:hover {
+                background-color: #f8f9fa;
+                color: #8B4513;
+            }
+        </style>
     </head>
-    <body class="bg-white text-dark">
+    <body style="background-color:white; color:#333;">
 
     <div id="app">
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light shadow-lg" style="background-color: #f8f9fa;">
-    <div class="container">
-            <!-- Logo -->
-            <a class="navbar-brand me-4" href="{{ url('/') }}">
-                <img src="{{ asset('images/logo.png') }}" alt="Drink Shop" height="90">
-            </a>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg" style="background-color:#fff; box-shadow:0 3px 10px rgba(0,0,0,0.1); padding:0.5rem 0;">
+            <div class="container" style="max-width:1200px;">
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    <img src="{{ asset('images/logo.png') }}" alt="MiloBoom" style="height:90px;">
+                </a>
 
-            <!-- Toggle button -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-            <!-- Menu -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <!-- Kanan -->
-                <ul class="navbar-nav ms-auto align-items-center">
-                    @auth
-                    <li class="nav-item me-3">
-        <a href="{{ route('cart.view') }}" 
-        class="btn btn-sm text-white" 
-        style="background-color: #8B4513; transition: 0.3s;"
-        onmouseover="this.style.backgroundColor='#A0522D';" 
-        onmouseout="this.style.backgroundColor='#8B4513';">
-            <i class="fas fa-shopping-cart"></i> Cart
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-center">
+
+                        @guest
+                            <li class="nav-item me-4">
+                                <a href="{{ route('login') }}" class="nav-link-hover">
+                                    <i class="fas fa-sign-in-alt me-2"></i> Login
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('register') }}" class="nav-link-hover">
+                                    <i class="fas fa-user-plus me-2"></i> Register
+                                </a>
+                            </li>
+                        @else
+                            <li class="nav-item me-4">
+                                <a href="{{ route('cart.view') }}" class="nav-link-hover">
+                                    <i class="fas fa-shopping-cart me-2"></i> Cart
+                                </a>
+                            </li>
+                            <li class="nav-item me-4">
+                                <a href="{{ route('orders.status') }}" class="nav-link-hover">
+                                    <i class="fas fa-clipboard-list me-2"></i> Status Pesanan
+                                </a>
+                            </li>
+
+                            @if(Auth::user()->isAdmin())
+                            <li class="nav-item dropdown me-4">
+        <a class="nav-link dropdown-toggle fw-semibold d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown"
+        style="white-space:nowrap; color:#000; padding:8px 0; font-weight:500; text-decoration:none; display:inline-block; border-bottom:2px solid transparent; transition:0.3s;"
+        onmouseover="this.style.color='#8B4513'; this.style.borderBottom='2px solid #8B4513';"
+        onmouseout="this.style.color='#000'; this.style.borderBottom='2px solid transparent';">
+            <i class="fas fa-user-shield me-2"></i> Admin
         </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+            <li>
+                <a href="{{ route('admin.dashboard') }}" 
+                style="background-color:transparent; color:#333; padding:6px 12px; text-decoration:none; display:flex; align-items:center; transition:0.3s;"
+                onmouseover="this.style.backgroundColor='#f8f9fa'; this.style.color='#8B4513';"
+                onmouseout="this.style.backgroundColor='transparent'; this.style.color='#333';">
+                <i class="fas fa-cogs me-2"></i> Admin Dashboard
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('logout') }}" 
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                style="background-color:transparent; color:#333; padding:6px 12px; text-decoration:none; display:flex; align-items:center; transition:0.3s;"
+                onmouseover="this.style.backgroundColor='#f8f9fa'; this.style.color='#8B4513';"
+                onmouseout="this.style.backgroundColor='transparent'; this.style.color='#333';">
+                <i class="fas fa-sign-out-alt me-2"></i> Logout
+                </a>
+            </li>
+        </ul>
     </li>
 
-    <li class="nav-item me-3">
-    <a href="{{ route('orders.status') }}" 
-       class="btn btn-sm text-white" 
-       style="background-color: #8B4513; transition: 0.3s;"
-       onmouseover="this.style.backgroundColor='#A0522D';" 
-       onmouseout="this.style.backgroundColor='#8B4513';">
-        <i class="fas fa-clipboard-list"></i> Status Pesanan
-    </a>
-</li>
 
-
-                    @endauth
-
-                    @guest
-                    <li class="nav-item me-2">
-        <a class="btn btn-sm" 
-        href="{{ route('login') }}" 
-        style="background-color:#8B4513; color:white; transition:0.3s;"
-        onmouseover="this.style.backgroundColor='#A0522D';" 
-        onmouseout="this.style.backgroundColor='#8B4513';">
-        <i class="fas fa-sign-in-alt"></i> Login
+    @else
+        <!-- User biasa -->
+    <li class="nav-item dropdown me-4">
+        <a class="nav-link dropdown-toggle fw-semibold d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" 
+        style="white-space:nowrap; color:#000; padding:8px 0; font-weight:500; text-decoration:none; display:inline-block; border-bottom:2px solid transparent; transition:0.3s;"
+        onmouseover="this.style.color='#8B4513'; this.style.borderBottom='2px solid #8B4513';"
+        onmouseout="this.style.color='#000'; this.style.borderBottom='2px solid transparent';">
+            <i class="fas fa-user me-2"></i> {{ Auth::user()->name }}
         </a>
-    </li>
-    <li class="nav-item">
-        <a class="btn btn-sm" 
-        href="{{ route('register') }}" 
-        style="background-color:#8B4513; color:white; transition:0.3s;"
-        onmouseover="this.style.backgroundColor='#A0522D';" 
-        onmouseout="this.style.backgroundColor='#8B4513';">
-        <i class="fas fa-user-plus"></i> Register
-        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+            <li>
+                <a href="{{ route('logout') }}" 
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                style="background-color:transparent; color:#333; padding:6px 12px; text-decoration:none; display:flex; align-items:center; transition:0.3s;"
+                onmouseover="this.style.backgroundColor='#f8f9fa'; this.style.color='#8B4513';"
+                onmouseout="this.style.backgroundColor='transparent'; this.style.color='#333';">
+                <i class="fas fa-sign-out-alt me-2"></i> Logout
+                </a>
+            </li>
+        </ul>
     </li>
 
-                    @else
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle fw-semibold" href="#" role="button" data-bs-toggle="dropdown">
-                                {{ Auth::user()->name }}
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                @if(Auth::user()->isAdmin())
-                                <li>
-        <a class="dropdown-item" href="{{ route('admin.dashboard') }}" 
-        style="background-color: transparent; color: #000; transition: 0.3s;" 
-        onmouseover="this.style.backgroundColor='#8B4513'; this.style.color='#fff';" 
-        onmouseout="this.style.backgroundColor='transparent'; this.style.color='#000';">
-        <i class="fas fa-tachometer-alt"></i> Admin Dashboard
-        </a>
-    </li>
+    @endif
 
-                                @endif
-                                <li>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
-                    @endguest
-                </ul>
+                        @endguest
+
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
+        <!-- Logout Form -->
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">@csrf</form>
 
         <!-- Main Content -->
-        <main class="py-4">
+        <main style="padding-top:2rem; padding-bottom:2rem;">
             @if(session('success'))
-                <div class="container">
-                    <div class="alert alert-success alert-dismissible fade show">
+                <div class="container mb-3">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
                         {{ session('success') }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 </div>
             @endif
             @if(session('error'))
-                <div class="container">
-                    <div class="alert alert-danger alert-dismissible fade show">
+                <div class="container mb-3">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         {{ session('error') }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 </div>
             @endif
@@ -133,55 +169,115 @@
             @yield('content')
         </main>
 
-        <!-- Footer -->
-        <footer class="bg-dark text-light pt-5 pb-3 mt-5 shadow-lg">
-        <div class="container">
-            <div class="row text-center text-md-start">
-                <!-- Kata Motivasi -->
-                <div class="col-md-4 mb-4">
-                    <h5 class="fw-bold">Kata Motivasi</h5>
-                    <p class="small fst-italic">
-                        "Hidup itu seperti secangkir kopi, nikmati perlahan agar terasa nikmatnya."
-                    </p>
-                </div>
+    <!-- Footer -->
+   <!-- Footer -->
+<footer style="background: #000; color: #fff; padding: 3rem 0 2rem 0;">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Kiri: Location & Operating Hours -->
+            <div class="col-lg-6">
+                <div class="mb-4">
+                    <h5 style="font-weight: 700; margin-bottom: 1rem; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.5px;">
+                        <i class="fas fa-map-marker-alt me-2"></i>Our Location
+                    </h5>
+                    <div style="font-size: 0.9rem; line-height: 1.6; color: #ccc; margin-bottom: 2rem;">
+                    Jl. Kp. Tengah, RT.06/RW.03, Cipeucang,<br>
+                     Kec. Cileungsi, Kabupaten Bogor, Jawa Barat 16820 <br>
 
-                <!-- Google Maps -->
-                <div class="col-md-4 mb-4">
-                    <h5 class="fw-bold">Lokasi Kami</h5>
-                    <div class="ratio ratio-16x9 rounded shadow-sm overflow-hidden">
-                        <iframe
-                            src="https://www.google.com/maps/embed/v1/place?q=smk%20fatahillah%20cileungsi&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
-                            style="border:0; border-radius:0.5rem;"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
                     </div>
                 </div>
 
-                <!-- Jadwal Operasional -->
-                <div class="col-md-4 mb-4">
-                    <h5 class="fw-bold">Jadwal Operasional</h5>
-                    <ul class="list-unstyled small">
-                        <li>Senin - Jumat: 07.00 - 22.00</li>
-                        <li>Sabtu: 09.00 - 22.00</li>
-                        <li>Minggu: Tutup</li>
-                    </ul>
+                <div>
+                    <h5 style="font-weight: 700; margin-bottom: 1rem; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.5px;">
+                        <i class="fas fa-clock me-2"></i>Operating Hours
+                    </h5>
+                    <div style="font-size: 0.9rem; line-height: 1.6; color: #ccc;">
+                        <div class="mb-2"><strong>Monday - Friday:</strong> 07:00 - 22:00</div>
+                        <div class="mb-2"><strong>Saturday:</strong> 09:00 - 22:00</div>
+                        <div class="mb-2"><strong>Sunday:</strong> Closed</div>
+                    </div>
                 </div>
             </div>
 
-            <hr class="border-light">
-
-            <!-- Copyright + Social Media -->
-            <div class="text-center">
-                <p class="mb-2 small">&copy; {{ date('Y') }} <strong>MiloBoom</strong>. All rights reserved.</p>
-                <div>
-                    <a href="#" class="text-light me-3"><i class="fab fa-instagram fa-lg"></i></a>
-                    <a href="https://wa.me/6281234567890" class="text-light me-3"><i class="fab fa-whatsapp fa-lg"></i></a>
+            <!-- Kanan: Maps -->
+            <div class="col-lg-6">
+                <div style="width: 100%; height: 300px; border-radius: 8px; overflow: hidden; border: 1px solid #555;">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1038.6778748539675!2d107.03970794825037!3d-6.423687271557469!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69965ac34c0f21%3A0xef519b4f14cf74e4!2sSMK%20Fatahillah%20Cileungsi!5e1!3m2!1sid!2sid!4v1756015811312!5m2!1sid!2sid" 
+                        style="width: 100%; height: 100%; border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
+
+    <!-- Contact Section & Bottom Section tetap sama -->
+</footer>
+
+
+            <!-- Contact Section -->
+            <div style="background: #111; padding: 2rem 0; border-top: 1px solid #333; text-align: center;">
+                <div class="container">
+                    <div style="font-size: 1.3rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;">
+                        Curhat Yuk 081-7075-6805
+                    </div>
+                    <div style="color: #25D366; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <i class="fab fa-whatsapp"></i>
+                        WhatsApp Chat Only
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Section -->
+            <div style="background: #000; padding: 1.5rem 0; border-top: 1px solid #333; text-align: center;">
+                <div class="container">
+                    <!-- Company Logos -->
+                    <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                        <div style="width: 60px; height: 60px; background: #222; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #333;">
+                            <i class="fas fa-coffee" style="font-size: 1.5rem; color: #8B4513;"></i>
+                        </div>
+                        <div style="width: 60px; height: 60px; background: #222; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #333;">
+                            <i class="fas fa-award" style="font-size: 1.5rem; color: #8B4513;"></i>
+                        </div>
+                    </div>
+
+                    <!-- Company Info -->
+                    <div style="font-size: 0.8rem; color: #888; line-height: 1.5;">
+                        <div class="mb-2">
+                            <strong>Hak Cipta ©2024 PT MiloBoom Indonesia</strong>
+                        </div>
+                        <div class="mb-2">
+                            Consumer Complaints Service Contact Information
+                        </div>
+                        <div class="mb-2">
+                            Directorate General of Consumer Protection and Trade Compliance, Ministry of Trade of the Republic of Indonesia
+                        </div>
+                        <div class="mb-3">
+                            WhatsApp Ditjen PKTN: 0853-1111-1010
+                        </div>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div style="margin-top: 1rem;">
+                        <a href="#" title="Instagram" style="color: #888; font-size: 1.2rem; margin: 0 0.8rem; text-decoration: none; transition: color 0.3s ease;" 
+                        onmouseover="this.style.color='#8B4513'" onmouseout="this.style.color='#888'">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/6281234567890" title="WhatsApp" style="color: #888; font-size: 1.2rem; margin: 0 0.8rem; text-decoration: none; transition: color 0.3s ease;"
+                        onmouseover="this.style.color='#8B4513'" onmouseout="this.style.color='#888'">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+
+                    <div style="margin-top: 1rem; font-size: 0.8rem; color: #666;">
+                        &copy; 2024 MiloBoom. All rights reserved.
+                    </div>
+                </div>
+            </div>
+        </footer>
 
     </div>
 
@@ -190,5 +286,3 @@
     @stack('scripts')
     </body>
     </html>
-
-
