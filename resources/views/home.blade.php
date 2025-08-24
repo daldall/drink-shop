@@ -199,9 +199,9 @@ $(document).ready(function() {
     setTimeout(()=> { $("#jumbotronSub").css({opacity:1, transform:'translateY(0)'}); }, 1500);
     setTimeout(()=> { $("#jumbotronBtn").css({opacity:1, transform:'translateY(0)'}); }, 2000);
 
-    setTimeout(()=> { $("#produkContainer").css({opacity:1, transform:'translateY(0)'}); }, 2100);
-    setTimeout(()=> { $("#produkRow").css({opacity:1, transform:'translateY(0)'}); }, 2500);
-    setTimeout(()=> { $("#produkRow .card").css({opacity:1}); }, 2500);
+    setTimeout(()=> { $("#produkContainer").css({opacity:1, transform:'translateY(0)'}); }, 800);
+    setTimeout(()=> { $("#produkRow").css({opacity:1, transform:'translateY(0)'}); }, 1200);
+    setTimeout(()=> { $("#produkRow .card").css({opacity:1}); }, 1200);
 
     // Ripple effect
     $(document).on("click", ".ripple", function (e) {
