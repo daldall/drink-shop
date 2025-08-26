@@ -109,20 +109,21 @@
                                 <div class="mb-3">
                                     <label for="order_status" class="form-label">Status Pesanan</label>
                                     <select class="form-control" id="order_status" name="order_status" required>
-                                        <option value="pending" {{ $order->order_status == 'pending' ? 'selected' : '' }}>Pending</option>
-                                        <option value="processing" {{ $order->order_status == 'processing' ? 'selected' : '' }}>Processing</option>
-                                        <option value="shipped" {{ $order->order_status == 'shipped' ? 'selected' : '' }}>Shipped</option>
-                                        <option value="delivered" {{ $order->order_status == 'delivered' ? 'selected' : '' }}>Delivered</option>
-                                        <option value="cancelled" {{ $order->order_status == 'cancelled' ? 'selected' : '' }}>Cancelled</option>
+                                    <option value="pending" {{ $order->order_status == 'pending' ? 'selected' : '' }}>Menunggu</option>
+                                    <option value="processing" {{ $order->order_status == 'processing' ? 'selected' : '' }}>Diproses</option>
+                                    <option value="shipped" {{ $order->order_status == 'shipped' ? 'selected' : '' }}>Dikirim</option>
+                                    <option value="delivered" {{ $order->order_status == 'delivered' ? 'selected' : '' }}>Terkirim</option>
+                                    <option value="cancelled" {{ $order->order_status == 'cancelled' ? 'selected' : '' }}>Dibatalkan</option>
+
                                     </select>
                                 </div>
                                 
                                 <div class="mb-3">
                                     <label for="payment_status" class="form-label">Status Pembayaran</label>
                                     <select class="form-control" id="payment_status" name="payment_status" required>
-                                        <option value="pending" {{ $order->payment_status == 'pending' ? 'selected' : '' }}>Pending</option>
-                                        <option value="paid" {{ $order->payment_status == 'paid' ? 'selected' : '' }}>Paid</option>
-                                        <option value="failed" {{ $order->payment_status == 'failed' ? 'selected' : '' }}>Failed</option>
+                                        <option value="pending" {{ $order->payment_status == 'pending' ? 'selected' : '' }}>Menunggu</option>
+                                        <option value="paid" {{ $order->payment_status == 'paid' ? 'selected' : '' }}>Sudah Bayar</option>
+                                        <option value="failed" {{ $order->payment_status == 'failed' ? 'selected' : '' }}>Gagal</option>
                                     </select>
                                 </div>
                                 

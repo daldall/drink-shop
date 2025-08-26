@@ -101,13 +101,13 @@
                                                 <td>{{ $order->formatted_total }}</td>
                                                 <td>
                                                     @if($order->order_status == 'pending')
-                                                        <span class="badge bg-warning">Pending</span>
+                                                        <span class="badge bg-warning">Menunggu</span>
                                                     @elseif($order->order_status == 'processing')
-                                                        <span class="badge bg-primary">Processing</span>
+                                                        <span class="badge bg-primary">Proses</span>
                                                     @elseif($order->order_status == 'shipped')
-                                                        <span class="badge bg-info">Shipped</span>
+                                                        <span class="badge bg-info">Dikirim</span>
                                                     @elseif($order->order_status == 'delivered')
-                                                        <span class="badge bg-success">Delivered</span>
+                                                        <span class="badge bg-success">Terkirim</span>
                                                     @else
                                                         <span class="badge bg-danger">Cancelled</span>
                                                     @endif

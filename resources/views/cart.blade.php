@@ -136,7 +136,7 @@
                             <!-- Field Alamat -->
                             <div class="mb-3">
                                 <label for="notes" class="form-label fw-semibold d-flex align-items-center">
-                                    Alamat
+                                    Data diri & Alamat
                                     <button type="button" 
                                             class="btn btn-sm btn-warning p-1 rounded-circle ms-2" 
                                             style="width:26px; height:26px; font-size:12px;"
@@ -146,7 +146,7 @@
                                         <i class="fas fa-info-circle"></i>
                                     </button>
                                 </label>
-                                <textarea class="form-control" id="notes" name="notes" rows="3" placeholder="Tambahkan alamat pengiriman Anda..." required></textarea>
+                                <textarea class="form-control" id="notes" name="notes" rows="3" placeholder="Tambahkan data diri & alamat pengiriman Anda..." required></textarea>
                             </div>
 
                             <button type="submit" 
@@ -163,11 +163,11 @@
                 <!-- Kontak Admin -->
                 <div class="alert alert-light mt-3" style="border-radius:8px; border:1px solid #ddd;">
     <span class="fw-semibold">Butuh bantuan?</span> Hubungi WhatsApp Admin:  
-    <a href="https://wa.me/6281234567890" 
+    <a href="https://wa.me/6285775294657" 
        target="_blank" 
        class="fw-bold" 
        style="color:#25D366; text-decoration:none;">
-       0812-3456-7890
+       0857-7529-4657
     </a>
 </div>
 

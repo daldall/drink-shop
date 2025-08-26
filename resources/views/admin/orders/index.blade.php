@@ -40,26 +40,26 @@
                                                 <span class="badge bg-warning">COD</span>
                                             @endif
                                         </td>
-                                        <td>
+                                        <td>    
                                             @if($order->order_status == 'pending')
-                                                <span class="badge bg-warning">Pending</span>
+                                                <span class="badge bg-warning">Menunggu</span>
                                             @elseif($order->order_status == 'processing')
-                                                <span class="badge bg-primary">Processing</span>
+                                                <span class="badge bg-primary">Proses</span>
                                             @elseif($order->order_status == 'shipped')
-                                                <span class="badge bg-info">Shipped</span>
+                                                <span class="badge bg-info">Dikirim</span>
                                             @elseif($order->order_status == 'delivered')
-                                                <span class="badge bg-success">Delivered</span>
+                                                <span class="badge bg-success">Terkirirm</span>
                                             @else
-                                                <span class="badge bg-danger">Cancelled</span>
+                                                <span class="badge bg-danger">Batal</span>
                                             @endif
                                         </td>
                                         <td>
                                             @if($order->payment_status == 'pending')
-                                                <span class="badge bg-warning">Pending</span>
+                                                <span class="badge bg-warning">Menunggu</span>
                                             @elseif($order->payment_status == 'paid')
-                                                <span class="badge bg-success">Paid</span>
+                                                <span class="badge bg-success">Sudah Bayar</span>
                                             @else
-                                                <span class="badge bg-danger">Failed</span>
+                                                <span class="badge bg-danger">Gagal</span>
                                             @endif
                                         </td>
                                         <td>{{ $order->created_at->format('d/m/Y H:i') }}</td>

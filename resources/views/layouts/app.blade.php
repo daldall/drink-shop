@@ -59,7 +59,7 @@
                            style="color:#333; padding:8px 0; font-weight:500; text-decoration:none; display:flex; align-items:center; border-bottom:2px solid transparent; transition:0.3s;"
                            onmouseover="this.style.color='#8B4513'; this.style.borderBottom='2px solid #8B4513';"
                            onmouseout="this.style.color='#333'; this.style.borderBottom='2px solid transparent';">
-                            <i class="fas fa-shopping-cart me-2"></i> Cart
+                            <i class="fas fa-shopping-cart me-2"></i> Keranjang
                         </a>
                     </li>
                     <li class="nav-item me-4">
@@ -236,7 +236,7 @@
             <div style="background:rgb(26, 26, 26); padding: 2rem 0; border-top: 1px solid #333; text-align: center;">
                 <div class="container">
                     <div style="font-size: 1.3rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;">
-                        Curhat Yuk 081-7075-6805
+                        Curhat Yuk 0857-7529-4657
                     </div>
                     <div style="color: #25D366; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.5rem;">
                         <i class="fab fa-whatsapp"></i>
@@ -270,7 +270,7 @@
                             Directorate General of Consumer Protection and Trade Compliance, Ministry of Trade of the Republic of Indonesia
                         </div>
                         <div class="mb-3">
-                            WhatsApp Ditjen PKTN: 0853-1111-1010
+                            WhatsApp : 0812-8898-0562
                         </div>
                     </div>
 
