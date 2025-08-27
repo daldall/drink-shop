@@ -2,6 +2,20 @@
 
 @section('content')
 <div class="container py-4">
+  <!-- Tombol Kembali ke Home -->
+  <div class="row mb-3">
+        <div class="col-md-12">
+            <a href="{{ route('home') }}" 
+               class="btn text-white" 
+               style="background-color:#000; border-radius:8px; transition:0.3s; box-shadow:0 2px 6px rgba(0,0,0,0.15);"
+               onmouseover="this.style.backgroundColor='#8B4513';" 
+               onmouseout="this.style.backgroundColor='#000';">
+                <i class="fas fa-arrow-left"></i> Kembali ke Home
+            </a>
+        </div>
+    </div>
+
+
     <h3 class="mb-4 fw-bold text-center">Status Pesanan Saya</h3>
 
     @if($orders->isEmpty())
