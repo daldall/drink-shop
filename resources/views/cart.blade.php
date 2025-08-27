@@ -52,10 +52,13 @@
                             <div class="row align-items-center border-bottom py-3">
                                 <div class="col-md-2">
                                     @if(!empty($item['image']))
-                                        <img src="{{ asset('storage/' . $item['image']) }}" 
-                                             class="img-fluid rounded" 
-                                             alt="{{ $item['name'] }}"
-                                             style="max-height:60px; object-fit:cover; border-radius:8px;">
+                                    <img src="{{ asset('storage/' . $item['image']) }}" 
+     class="img-fluid rounded" 
+     alt="{{ $item['name'] }}"
+     style="max-height:60px; object-fit:cover; border-radius:8px;">
+
+
+
                                     @else
                                         <div class="bg-light p-3 rounded text-center">
                                             <i class="fas fa-box fa-2x text-muted"></i>
