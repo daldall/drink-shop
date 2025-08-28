@@ -119,8 +119,39 @@
   </div>
 </div>
 
-<!-- Section Produk dengan Background Cream -->
+<!-- Section Poster Promo dengan Background Cream -->
 <div class="py-5" style="background-color: #f8f5f2;">
+  <div class="container">
+    <!-- Judul -->
+    <div class="row mb-5">
+      <div class="col-md-12 text-center">
+        <h2 class="mb-4 fw-bold" style="color:#8B4513; font-size: 2.2rem;">Promo Terbaru</h2>
+        <div class="mx-auto mb-4" style="width: 120px; height: 4px; background: linear-gradient(90deg, #D4A574, #8B4513); border-radius: 2px;"></div>
+      </div>
+    </div>
+
+    <!-- 2 Poster Gambar -->
+    <div class="row justify-content-center g-4">
+      <div class="col-md-6 col-lg-5" data-aos="fade-right" data-aos-duration="1000">
+        <img src="{{ asset('images/Brown Modern New Drink Menu Coffee Poster.png') }}" 
+             alt="Poster Promo 1" 
+             class="img-fluid rounded-4 shadow-lg" 
+             style="width: 50%; height: auto; object-fit: contain; display:block; margin:auto;">
+      </div>
+      <div class="col-md-6 col-lg-5" data-aos="fade-left" data-aos-duration="1000">
+        <img src="{{ asset('images/Brown Modern New Drink Menu Coffee Poster.png') }}" 
+             alt="Poster Promo 2" 
+             class="img-fluid rounded-4 shadow-lg" 
+             style="width: 50%; height: auto; object-fit: contain; display:block; margin:auto;">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Section Produk dengan Background Cream -->
+<div class="py-5" style="background-color:rgb(255, 255, 255);">
   <div class="container">
 
   <!-- Produk -->

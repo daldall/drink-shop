@@ -36,8 +36,8 @@
                                 <!-- Tambahan Nomor WhatsApp Admin -->
                                 <div class="alert alert-success">
                                     Kirim bukti pembayaran ke WhatsApp Admin:  
-                                    <a href="https://wa.me/6281234567890" target="_blank" class="fw-bold text-success">
-                                        0812-3456-7890
+                                    <a href="https://wa.me/6285775294657" target="_blank" class="fw-bold text-success">
+                                    0857-7529-4657
                                     </a>
                                 </div>
                             </div>
@@ -51,8 +51,8 @@
                         <!-- Tambahan Kontak WA Admin juga ditampilkan di COD -->
                         <div class="alert alert-success">
                             Jika ada kesalahan pesanan, hubungi WhatsApp Admin:  
-                            <a href="https://wa.me/6281234567890" target="_blank" class="fw-bold text-success">
-                                0812-3456-7890
+                            <a href="https://wa.me/6285775294657" target="_blank" class="fw-bold text-success">
+                                0857-7529-4657
                             </a>
                         </div>
                     @endif
