@@ -106,19 +106,19 @@
 
         <ul class="list-group list-group-flush mb-3">
           <li class="list-group-item">
-            ✅ Login/Register hanya dipakai untuk <b>mencatat pesanan Anda</b>.
+            1.Login/Register hanya dipakai untuk <b>mencatat pesanan Anda</b>.
           </li>
           <li class="list-group-item">
-            ✅ Anda bisa pakai <b>email & password apa saja</b> (tidak harus asli), yang penting <b>ingat sendiri</b>.
+            2. Anda bisa pakai <b>email & password apa saja</b> (tidak harus asli), yang penting <b>ingat sendiri</b>.
           </li>
           <li class="list-group-item">
-            ✅ Data login hanya digunakan untuk <b>riwayat pesanan</b> & <b>konfirmasi pembayaran</b>.
+            3. Data login hanya digunakan untuk <b>riwayat pesanan</b> & <b>konfirmasi pembayaran</b>.
           </li>
           <li class="list-group-item">
-            ✅ Website ini <b>tidak pernah meminta data sensitif</b> seperti password email asli, PIN, atau data perbankan.
+            4. Website ini <b>tidak pernah meminta data sensitif</b> seperti password email asli, PIN, atau data perbankan.
           </li>
           <li class="list-group-item">
-            ✅ Jadi tenang aja, sistem ini <b>aman</b> dan <b>bukan link phising</b>.
+            5. Jadi tenang aja, sistem ini <b>aman</b> dan <b>bukan link phising</b>.
           </li>
         </ul>
 
