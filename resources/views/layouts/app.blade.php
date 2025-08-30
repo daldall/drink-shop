@@ -134,27 +134,30 @@
 
 <!-- Inline responsive: pakai media query di head -->
 <style>
-@media (max-width: 991px) {
-    .navbar .navbar-brand {
-        margin: 0 auto !important;
-        display: block !important;
-        text-align: center !important;
-        position: relative !important;
-        left: 0 !important;
+/* Untuk desktop: gedein font & spacing navbar kanan */
+@media (min-width: 992px) {
+    .navbar-nav.ms-auto {
+        font-size: 1.35rem; /* lebih gede */
+        font-weight: 600;   /* lebih tebal */
     }
-    .navbar-collapse {
-        margin-top: 10px !important;
-        text-align: center !important;
+
+    .navbar-nav.ms-auto .nav-item a {
+        padding: 12px 10px !important; /* tambah spacing vertikal */
     }
-    .navbar-nav {
-        flex-direction: column !important;
-        align-items: center !important;
-    }
-    .navbar-nav .nav-item {
-        margin-bottom: 0.5rem !important;
+
+    .navbar-nav.ms-auto .nav-item.dropdown .nav-link {
+        padding: 12px 10px !important;
     }
 }
+
+/* Bisa juga hover lebih menonjol */
+.navbar-nav.ms-auto .nav-item a:hover,
+.navbar-nav.ms-auto .nav-item.dropdown .nav-link:hover {
+    color: #8B4513 !important;
+    border-bottom: 2px solid #8B4513 !important;
+}
 </style>
+
 
 
 

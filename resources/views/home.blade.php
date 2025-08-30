@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- Jumbotron Modern - No Container, Full Width -->
-<div class="position-relative overflow-hidden" style="height:500px; margin-top: -50px; padding-top: 50px;">
+<div class="position-relative overflow-hidden" style="height:630px; margin-top: -50px; padding-top: 70px; margin-bottom: 80px;">
   <!-- Video Background -->
   <video autoplay muted loop playsinline 
          class="position-absolute top-0 start-0 w-100 h-100" 
@@ -16,16 +16,18 @@
 
   <!-- Konten Jumbotron -->
   <div class="position-absolute top-50 start-50 translate-middle text-center text-white" style="z-index:2; width: 90%;">
-    <h1 id="jumbotronTitle" class="display-3 fw-bold mb-4" 
-        style="opacity:0; transform:translateY(30px); transition:all 1s ease; text-shadow: 2px 2px 15px rgba(0,0,0,0.8);">
-        Selamat Datang di <span style="color:#D4A574;">MiloBoom</span>
-    </h1>
-    <p id="jumbotronSub" class="lead mb-4 fs-4" 
-       style="opacity:0; transform:translateY(30px); transition:all 1s ease; text-shadow: 1px 1px 10px rgba(0,0,0,0.7); max-width: 600px; margin: 0 auto;">
-        Minuman segar pilihan terbaik untuk menemani hari Anda
-    </p>
+  <h1 id="jumbotronTitle" class="display-1 fw-bold mb-4" 
+    style="opacity:0; transform:translateY(30px); transition:all 1s ease; text-shadow: 2px 2px 20px rgba(0,0,0,0.8);">
+    Selamat Datang di <span style="color:#D4A574;">MiloBoom</span>
+</h1>
+
+<p id="jumbotronSub" class="lead mb-4 fs-3" 
+   style="opacity:0; transform:translateY(30px); transition:all 1s ease; text-shadow: 1px 1px 15px rgba(0,0,0,0.7); max-width: 700px; margin: 0 auto;">
+    Minuman segar pilihan terbaik untuk menemani hari Anda
+</p>
+
     <a id="jumbotronBtn" href="#produkContainer" 
-       class="btn btn-lg ripple px-5 py-3" 
+       class="btn btn-lg ripple px-6 py-4" 
        style="
           background: rgba(212, 165, 116, 0.9);
           color:#fff; 
@@ -48,7 +50,7 @@
 </div>
 
 <!-- Section 3 Fitur dengan Background Cream -->
-<div class="py-5" style="background-color: #f8f5f2;">
+<div class="py-6 py-md-8" style="background-color: #f8f5f2; margin-bottom: 60px;">
   <div class="container">
     <!-- Judul Section -->
     <div class="row mb-5">
@@ -87,12 +89,12 @@
 </div>
 
 <!-- Section Foto + Quote dengan Background Putih -->
-<div class="py-5" style="background-color: #ffffff;">
+<div class="py-6 py-md-8" style="background-color: #ffffff; margin-bottom: 60px;">
   <div class="container">
     <div class="row align-items-center">
       <!-- Foto -->
    <!-- Foto CEO full, tidak kepotong -->
-   <div class="col-md-6" data-aos="fade-right">
+   <div class="col-md-6 mb-4 mb-md-0" data-aos="fade-right">
         <img src="{{ asset('images/ceo.jpg') }}" 
              class="img-fluid rounded-4 shadow-lg" 
              style="width: 100%; height: auto; display: block;"
@@ -107,7 +109,10 @@
               <i class="fas fa-quote-left" style="font-size: 3rem; color: #D4A574; opacity: 0.7;"></i>
             </div>
             <p class="lead mb-4" style="font-size: 1.3rem; line-height: 1.6; color: #333; font-style: italic;">
-              "Di MiloBoom, impian kami adalah menyajikan minuman berkualitas tinggi, dibuat dengan bahan-bahan segar terbaik untuk pelanggan di seluruh Indonesia – dan seluruh dunia."
+              "MiloBoom lahir dari ide kreatif siswa yang ingin mencoba langsung pengalaman berwirausaha lewat tugas PKWU.
+               Brand ini dibentuk untuk menjawab kebutuhan minuman kekinian dengan rasa yang unik, praktis, dan terjangkau.
+                Dari awalnya sekadar proyek sekolah, MiloBoom terus berkembang menjadi wadah belajar sekaligus inovasi bagi para pelajar 
+                untuk memahami dunia bisnis secara nyata."
             </p>
             <footer class="text-end" style="color: #8B4513;">
               <strong>— Budi Santoso, CEO dan Founder</strong>
@@ -120,7 +125,7 @@
 </div>
 
 <!-- Section Poster Promo dengan Background Cream -->
-<div class="py-5" style="background-color: #f8f5f2;">
+<div class="py-6 py-md-8" style="background-color: #f8f5f2; margin-bottom: 60px;">
   <div class="container">
     <!-- Judul -->
     <div class="row mb-5">
@@ -148,14 +153,12 @@
   </div>
 </div>
 
-
-
-<!-- Section Produk dengan Background Cream -->
-<div class="py-5" style="background-color:rgb(255, 255, 255);">
+<!-- Section Produk dengan Background Putih -->
+<div class="py-6 py-md-8" style="background-color: #ffffff; margin-bottom: 60px;">
   <div class="container">
 
   <!-- Produk -->
-  <div class="row mb-4" id="produkContainer" style="opacity:0; transform:translateY(20px); transition:all 1s;">
+  <div class="row mb-5" id="produkContainer" style="opacity:0; transform:translateY(20px); transition:all 1s;">
     <div class="col-md-12 text-center">
       <h2 class="mb-4 fw-bold" style="color:#8B4513; font-size: 2.5rem;">Produk Kami</h2>
       <div class="mx-auto mb-4" style="width: 100px; height: 4px; background: linear-gradient(90deg, #D4A574, #8B4513); border-radius: 2px;"></div>
@@ -400,6 +403,30 @@ $(document).ready(function() {
     
     .jumbotron-content p {
         font-size: 1rem !important;
+    }
+    
+    /* Padding yang lebih kecil untuk mobile */
+    .py-6, .py-md-8 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+    
+    /* Margin bottom yang lebih kecil untuk mobile */
+    .section-spacing {
+        margin-bottom: 40px !important;
+    }
+}
+
+/* Spacing untuk desktop */
+@media (min-width: 769px) {
+    .py-6 {
+        padding-top: 4rem !important;
+        padding-bottom: 4rem !important;
+    }
+    
+    .py-md-8 {
+        padding-top: 5rem !important;
+        padding-bottom: 5rem !important;
     }
 }
 </style>
