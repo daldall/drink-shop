@@ -218,8 +218,8 @@ footer .fa-coffee:hover, footer .fa-award:hover {
                         <i class="fas fa-clock me-2"></i>Jam Operasional
                     </h5>
                     <div style="font-size: 0.9rem; line-height: 1.6; color: #ccc;">
-                        <div class="mb-2"><strong>Senin - Jumat:</strong> 07:00 - 22:00</div>
-                        <div class="mb-2"><strong>Sabtu:</strong> 09:00 - 22:00</div>
+                        <div class="mb-2"><strong>Senin - Jumat:</strong> 07:00 - 23:00</div>
+                        <div class="mb-2"><strong>Sabtu:</strong> 10:00 - 23:00</div>
                         <div class="mb-2"><strong>Ahad:</strong> Tutup</div>
                     </div>
                 </div>

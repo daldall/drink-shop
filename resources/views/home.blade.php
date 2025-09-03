@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- Jumbotron Modern - No Container, Full Width -->
-<div class="position-relative overflow-hidden" style="height:615px; margin-top: -50px; padding-top: 70px; margin-bottom: 0px;">
+<div class="position-relative overflow-hidden" style="height:613px; margin-top: -50px; padding-top: 70px; margin-bottom: 0px;">
   <!-- Video Background -->
   <video autoplay muted loop playsinline 
          class="position-absolute top-0 start-0 w-100 h-100" 
@@ -135,23 +135,20 @@
       </div>
     </div>
 
-    <!-- 2 Poster Gambar -->
+    <!-- Poster dari Database -->
     <div class="row justify-content-center g-4">
-      <div class="col-md-6 col-lg-5" data-aos="fade-right" data-aos-duration="1000">
-        <img src="{{ asset('images/Brown Modern New Drink Menu Coffee Poster.png') }}" 
-             alt="Poster Promo 1" 
-             class="img-fluid rounded-4 shadow-lg" 
-             style="width: 50%; height: auto; object-fit: contain; display:block; margin:auto;">
-      </div>
-      <div class="col-md-6 col-lg-5" data-aos="fade-left" data-aos-duration="1000">
-        <img src="{{ asset('images/Brown Modern New Drink Menu Coffee Poster.png') }}" 
-             alt="Poster Promo 2" 
-             class="img-fluid rounded-4 shadow-lg" 
-             style="width: 50%; height: auto; object-fit: contain; display:block; margin:auto;">
-      </div>
+      @foreach($posters as $poster)
+        <div class="col-md-6 col-lg-5" data-aos="fade-up" data-aos-duration="1000">
+          <img src="{{ asset('storage/'.$poster->image) }}" 
+               alt="{{ $poster->title ?? 'Poster Promo' }}" 
+               class="img-fluid rounded-4 shadow-lg" 
+               style="width: 50%; height: auto; object-fit: contain; display:block; margin:auto;">
+        </div>
+      @endforeach
     </div>
   </div>
 </div>
+
 
 <!-- Section Produk dengan Background Putih -->
 <div class="py-6 py-md-8" style="background-color: #ffffff; margin-bottom: 60px;">
