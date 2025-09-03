@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- Jumbotron Modern - No Container, Full Width -->
-<div class="position-relative overflow-hidden" style="height:630px; margin-top: -50px; padding-top: 70px; margin-bottom: 80px;">
+<div class="position-relative overflow-hidden" style="height:630px; margin-top: -50px; padding-top: 70px; margin-bottom: 0px;">
   <!-- Video Background -->
   <video autoplay muted loop playsinline 
          class="position-absolute top-0 start-0 w-100 h-100" 
@@ -274,16 +274,6 @@ $(document).ready(function() {
         once: true
     });
 
-    // Smooth scroll untuk anchor link
-    $('a[href^="#"]').on('click', function(event) {
-        var target = $(this.getAttribute('href'));
-        if( target.length ) {
-            event.preventDefault();
-            $('html, body').stop().animate({
-                scrollTop: target.offset().top - 80
-            }, 1000);
-        }
-    });
 
     // Animasi jumbotron yang lebih smooth
     setTimeout(()=> { $("#jumbotronTitle").css({opacity:1, transform:'translateY(0)'}); }, 500);
@@ -355,6 +345,11 @@ $(document).ready(function() {
 </script>
 
 <style>
+  html, body {
+    overflow-x: hidden; /* mencegah scroll horizontal */
+    width: 100%;
+}
+
 @keyframes ripple {
     from { 
         transform: scale(0); 

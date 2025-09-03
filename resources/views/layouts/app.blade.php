@@ -135,18 +135,21 @@
 <!-- Inline responsive: pakai media query di head -->
 <style>
 /* Untuk desktop: gedein font & spacing navbar kanan */
-@media (min-width: 992px) {
+@media (max-width: 991.98px) {
+    .navbar-brand img {
+        height: 70px; /* lebih kecil di mobile */
+    }
+
     .navbar-nav.ms-auto {
-        font-size: 1.35rem; /* lebih gede */
-        font-weight: 600;   /* lebih tebal */
+        font-size: 1rem;
     }
 
     .navbar-nav.ms-auto .nav-item a {
-        padding: 12px 10px !important; /* tambah spacing vertikal */
+        padding: 10px 0 !important;
     }
 
-    .navbar-nav.ms-auto .nav-item.dropdown .nav-link {
-        padding: 12px 10px !important;
+    .navbar-toggler {
+        border: 1px solid #ccc;
     }
 }
 
@@ -155,6 +158,12 @@
 .navbar-nav.ms-auto .nav-item.dropdown .nav-link:hover {
     color: #8B4513 !important;
     border-bottom: 2px solid #8B4513 !important;
+}
+/* Footer logo hover */
+footer .fa-coffee:hover, footer .fa-award:hover {
+    color: #FFD700; /* gold */
+    transform: scale(1.2);
+    transition: all 0.3s ease;
 }
 </style>
 
