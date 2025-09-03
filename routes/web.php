@@ -37,7 +37,3 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
-    Route::resource('posters', App\Http\Controllers\Admin\PosterController::class);
-});
-

@@ -135,20 +135,23 @@
       </div>
     </div>
 
-    <!-- Poster dari Database -->
+    <!-- 2 Poster Gambar -->
     <div class="row justify-content-center g-4">
-      @foreach($posters as $poster)
-        <div class="col-md-6 col-lg-5" data-aos="fade-up" data-aos-duration="1000">
-          <img src="{{ asset('storage/'.$poster->image) }}" 
-               alt="{{ $poster->title ?? 'Poster Promo' }}" 
-               class="img-fluid rounded-4 shadow-lg" 
-               style="width: 50%; height: auto; object-fit: contain; display:block; margin:auto;">
-        </div>
-      @endforeach
+      <div class="col-md-6 col-lg-5" data-aos="fade-right" data-aos-duration="1000">
+        <img src="{{ asset('images/Brown Modern New Drink Menu Coffee Poster.png') }}" 
+             alt="Poster Promo 1" 
+             class="img-fluid rounded-4 shadow-lg" 
+             style="width: 50%; height: auto; object-fit: contain; display:block; margin:auto;">
+      </div>
+      <div class="col-md-6 col-lg-5" data-aos="fade-left" data-aos-duration="1000">
+        <img src="{{ asset('images/Brown Modern New Drink Menu Coffee Poster.png') }}" 
+             alt="Poster Promo 2" 
+             class="img-fluid rounded-4 shadow-lg" 
+             style="width: 50%; height: auto; object-fit: contain; display:block; margin:auto;">
+      </div>
     </div>
   </div>
 </div>
-
 
 <!-- Section Produk dengan Background Putih -->
 <div class="py-6 py-md-8" style="background-color: #ffffff; margin-bottom: 60px;">
