@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- Jumbotron Modern - No Container, Full Width -->
-<div class="position-relative overflow-hidden" style="height:613px; margin-top: -50px; padding-top: 70px; margin-bottom: 0px;">
+<div class="position-relative overflow-hidden" style="height:620px; margin-top: -50px; padding-top: 70px; margin-bottom: 0px;">
   <!-- Video Background -->
   <video autoplay muted loop playsinline 
          class="position-absolute top-0 start-0 w-100 h-100" 

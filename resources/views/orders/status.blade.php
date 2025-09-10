@@ -26,6 +26,8 @@
               @php
                   $statusMap = [
                       'pending' => ['text' => 'Menunggu', 'class' => 'bg-warning text-dark'],
+                      'processing' => ['text' => 'Diproses', 'class' => 'bg-primary text-white'],
+                      'shipped' => ['text' => 'Dikirim', 'class' => 'bg-info text-dark'],
                       'delivered' => ['text' => 'Terkirim', 'class' => 'bg-success text-white'],
                       'canceled' => ['text' => 'Dibatalkan', 'class' => 'bg-danger text-white'],
                   ];

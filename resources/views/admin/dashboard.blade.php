@@ -103,7 +103,7 @@
                                                     @if($order->order_status == 'pending')
                                                         <span class="badge bg-warning">Menunggu</span>
                                                     @elseif($order->order_status == 'processing')
-                                                        <span class="badge bg-primary">Proses</span>
+                                                        <span class="badge bg-primary">Diproses</span>
                                                     @elseif($order->order_status == 'shipped')
                                                         <span class="badge bg-info">Dikirim</span>
                                                     @elseif($order->order_status == 'delivered')
