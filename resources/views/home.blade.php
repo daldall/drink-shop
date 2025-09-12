@@ -137,21 +137,28 @@
 
     <!-- 2 Poster Gambar -->
     <div class="row justify-content-center g-4">
-      <div class="col-md-6 col-lg-5" data-aos="fade-right" data-aos-duration="1000">
-        <img src="{{ asset('images/Brown Modern New Drink Menu Coffee Poster.png') }}" 
-             alt="Poster Promo 1" 
-             class="img-fluid rounded-4 shadow-lg" 
-             style="width: 52%; height: auto; object-fit: contain; display:block; margin:auto;">
-      </div>
-      <div class="col-md-6 col-lg-5" data-aos="fade-left" data-aos-duration="1000">
-        <img src="{{ asset('images/jumbtron.png') }}" 
-             alt="Poster Promo 2" 
-             class="img-fluid rounded-4 shadow-lg" 
-             style="width: 50%; height: auto; object-fit: contain; display:block; margin:auto;">
-      </div>
-    </div>
+  <div class="col-md-6 col-lg-5" data-aos="fade-right" data-aos-duration="1000">
+    <img src="{{ asset('images/Brown Modern New Drink Menu Coffee Poster.png') }}" 
+         alt="Poster Promo 1" 
+         class="img-fluid rounded-4 shadow-lg" 
+         style="width: 52%; height: auto; object-fit: contain; display:block; margin:auto; transition: transform 0.4s ease;"
+         onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.5)';"
+         onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.3)';">
+  </div>
+
+  <div class="col-md-6 col-lg-5" data-aos="fade-left" data-aos-duration="1000">
+    <img src="{{ asset('images/jumbtron.png') }}" 
+         alt="Poster Promo 2" 
+         class="img-fluid rounded-4 shadow-lg" 
+         style="width: 50%; height: auto; object-fit: contain; display:block; margin:auto; transition: transform 0.4s ease;"
+         onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.5)';"
+         onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.3)';">
   </div>
 </div>
+
+<br>
+<br>
+
 
 <!-- Section Produk dengan Background Putih -->
 <div class="py-6 py-md-8" style="background-color: #ffffff; margin-bottom: 60px;">

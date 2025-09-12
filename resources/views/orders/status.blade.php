@@ -61,7 +61,7 @@
                               <p class="mb-0 text-muted">Alamat: {{ $order->notes ?? '-' }}</p>
                           </div>
                           <div>
-                              <a href="{{ url('/') }}#produkContainer" class="btn btn-sm btn-outline-brown">Beli Lagi</a>
+                              <a href="{{ url('/') }}#produkContainer" class="btn btn-sm btn-outline-warning">Beli Lagi</a>
                           </div>
                       </div>
                   </div>
