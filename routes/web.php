@@ -8,7 +8,6 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\OrderStatusController;
 
-
 // Public routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -23,7 +22,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/checkout', [CartController::class, 'checkout'])->name('checkout');
     Route::get('/order-success/{id}', [CartController::class, 'orderSuccess'])->name('order.success');
     Route::get('/orders/status', [OrderStatusController::class, 'index'])->name('orders.status');
-
 });
 
 // Admin routes
@@ -34,6 +32,3 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
     Route::patch('/orders/{order}/status', [OrderController::class, 'updateStatus'])->name('orders.update-status');
 });
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
