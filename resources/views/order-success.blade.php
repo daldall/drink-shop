@@ -24,7 +24,7 @@
                             <div class="card-body">
                                 <div class="qr-code-container mb-3" style="display: flex; justify-content: center;">
                                     <!-- Ganti src sesuai file QR statis di public/images -->
-                                    <img src="{{ asset('images/qr.png') }}" 
+                                    <img src="{{ asset('images/qr.jpg') }}" 
                                          style="width:200px; height:200px;" 
                                          alt="QR Code">
                                 </div>

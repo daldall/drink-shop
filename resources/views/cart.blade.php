@@ -213,7 +213,7 @@
       </div>
       <div class="modal-body">
         <ol>
-          <li>Pilih metode pembayaran QR Code.</li>
+          <li>Pilih metode pembayaran QR Code Dana.</li>
           <li>Scan kode QR yang diberikan setelah checkout.</li>
           <li>Lakukan pembayaran sesuai jumlah total.</li>
           <li>Kirim bukti pembayaran ke nomor WhatsApp admin.</li>
