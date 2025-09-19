@@ -113,7 +113,7 @@
                             <ul class="dropdown-menu dropdown-menu-end" 
                                 style="background-color:#fff;">
                                 <li>
-                                    <a href="{{ route('logout') }}" 
+                                    <a href="{{ route('home') }}" 
                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                                        style="color:#333; padding:6px 12px; text-decoration:none; display:flex; align-items:center;"
                                        onmouseover="this.style.backgroundColor='#f8f9fa'; this.style.color='#8B4513';"
