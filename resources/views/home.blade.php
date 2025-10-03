@@ -94,12 +94,12 @@
     <div class="row align-items-center">
       <!-- Foto -->
    <!-- Foto CEO full, tidak kepotong -->
-   <div class="col-md-6 mb-4 mb-md-0" data-aos="fade-right">
+   {{-- <div class="col-md-6 mb-4 mb-md-0" data-aos="fade-right">
         <img src="{{ asset('images/ceo.jpg') }}" 
              class="img-fluid rounded-4 shadow-lg" 
              style="width: 100%; height: auto; display: block;"
              alt="Founder MiloBoom">
-      </div>
+      </div> --}}
       
       <!-- Quote Text -->
       {{-- <div class="col-md-6" data-aos="fade-left">
