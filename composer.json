@@ -46,7 +46,22 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
-        ]
+        ],
+        "scripts": {
+    "post-install-cmd": [
+        "@php artisan config:clear",
+        "@php artisan cache:clear",
+        "@php artisan route:clear",
+        "@php artisan view:clear"
+    ],
+    "post-update-cmd": [
+        "@php artisan config:clear",
+        "@php artisan cache:clear",
+        "@php artisan route:clear",
+        "@php artisan view:clear"
+    ]
+}
+
     },
     "extra": {
         "laravel": {
