@@ -11,25 +11,46 @@
 
     class CartController extends Controller
     {
-        public function addToCart(Request $request)
-        {
-            $product = Product::findOrFail($request->product_id);
-            $cart = Session::get('cart', []);
+       public function addToCart(Request $request)
+{
+    try {
+        // validasi minimal
+        $request->validate([
+            'product_id' => 'required|integer|exists:products,id',
+            'quantity'   => 'required|integer|min:1'
+        ]);
 
-            if (isset($cart[$product->id])) {
-                $cart[$product->id]['quantity'] += $request->quantity;
-            } else {
-                $cart[$product->id] = [
-                    'name' => $product->name,
-                    'price' => $product->price,
-                    'quantity' => $request->quantity,
-                    'image' => $product->image
-                ];
-            }
+        $product = Product::findOrFail($request->product_id);
+        $cart = Session::get('cart', []);
 
-            Session::put('cart', $cart);
-            return response()->json(['success' => 'Product added to cart!']);
+        if (isset($cart[$product->id])) {
+            $cart[$product->id]['quantity'] += $request->quantity;
+        } else {
+            $cart[$product->id] = [
+                'name'     => $product->name,
+                'price'    => $product->price,
+                'quantity' => $request->quantity,
+                'image'    => $product->image
+            ];
         }
+
+        Session::put('cart', $cart);
+
+        return response()->json([
+            'success'    => true,
+            'message'    => 'Product added to cart!',
+            'cart_count' => array_sum(array_column($cart, 'quantity'))
+        ]);
+
+    } catch (\Exception $e) {
+        // Tangkap semua error
+        return response()->json([
+            'success' => false,
+            'message' => $e->getMessage()
+        ], 500);
+    }
+}
+
 
         public function viewCart()
         {
