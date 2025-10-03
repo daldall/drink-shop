@@ -102,7 +102,7 @@
       </div>
       
       <!-- Quote Text -->
-      <div class="col-md-6" data-aos="fade-left">
+      {{-- <div class="col-md-6" data-aos="fade-left">
         <div class="ps-md-4">
           <blockquote class="position-relative">
             <div class="mb-4">
@@ -119,7 +119,7 @@
             </footer>
           </blockquote>
         </div>
-      </div>
+      </div> --}}
     </div>
   </div>
 </div>
