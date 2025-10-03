@@ -1,24 +1,18 @@
-    <?php
-    namespace App\Http\Controllers;
+<?php
 
-    use App\Models\Product;
-    use App\Models\Order;
-    use App\Models\OrderItem;
-    use Illuminate\Http\Request;
-    use Illuminate\Support\Facades\Auth;
-    use Illuminate\Support\Facades\Session;
+namespace App\Http\Controllers;
 
-    class CartController extends Controller
-    {
-       public function addToCart(Request $request)
+use App\Models\Product;
+use App\Models\Order;
+use App\Models\OrderItem;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+
+class CartController extends Controller
 {
-    try {
-        // validasi minimal
-        $request->validate([
-            'product_id' => 'required|integer|exists:products,id',
-            'quantity'   => 'required|integer|min:1'
-        ]);
-
+    public function addToCart(Request $request)
+    {
         $product = Product::findOrFail($request->product_id);
         $cart = Session::get('cart', []);
 
@@ -26,85 +20,71 @@
             $cart[$product->id]['quantity'] += $request->quantity;
         } else {
             $cart[$product->id] = [
-                'name'     => $product->name,
-                'price'    => $product->price,
+                'name' => $product->name,
+                'price' => $product->price,
                 'quantity' => $request->quantity,
-                'image'    => $product->image
+                'image' => $product->image
             ];
         }
 
         Session::put('cart', $cart);
+        return response()->json(['success' => 'Product added to cart!']);
+    }
 
-        return response()->json([
-            'success'    => true,
-            'message'    => 'Product added to cart!',
-            'cart_count' => array_sum(array_column($cart, 'quantity'))
+    public function viewCart()
+    {
+        $cart = Session::get('cart', []);
+        return view('cart', compact('cart'));
+    }
+
+    public function removeFromCart($id)
+    {
+        $cart = Session::get('cart', []);
+        unset($cart[$id]);
+        Session::put('cart', $cart);
+        return redirect()->back()->with('success', 'Item removed from cart!');
+    }
+
+    public function checkout(Request $request)
+    {
+        $request->validate([
+            'payment_method' => 'required|in:qr,cod',
+            'notes' => 'nullable|string'
         ]);
 
-    } catch (\Exception $e) {
-        // Tangkap semua error
-        return response()->json([
-            'success' => false,
-            'message' => $e->getMessage()
-        ], 500);
+        $cart = Session::get('cart', []);
+        if (empty($cart)) {
+            return redirect()->back()->with('error', 'Cart is empty!');
+        }
+
+        $total = 0;
+        foreach ($cart as $item) {
+            $total += $item['price'] * $item['quantity'];
+        }
+
+        $order = Order::create([
+            'user_id' => Auth::id(),
+            'total_amount' => $total,
+            'payment_method' => $request->payment_method,
+            'notes' => $request->notes
+        ]);
+
+        foreach ($cart as $productId => $item) {
+            OrderItem::create([
+                'order_id' => $order->id,
+                'product_id' => $productId,
+                'quantity' => $item['quantity'],
+                'price' => $item['price']
+            ]);
+        }
+
+        Session::forget('cart');
+        return redirect()->route('order.success', $order->id);
+    }
+
+    public function orderSuccess($orderId)
+    {
+        $order = Order::with('orderItems.product')->findOrFail($orderId);
+        return view('order-success', compact('order'));
     }
 }
-
-
-        public function viewCart()
-        {
-            $cart = Session::get('cart', []);
-            return view('cart', compact('cart'));
-        }
-
-        public function removeFromCart($id)
-        {
-            $cart = Session::get('cart', []);
-            unset($cart[$id]);
-            Session::put('cart', $cart);
-            return redirect()->back()->with('success', 'Item removed from cart!');
-        }
-
-        public function checkout(Request $request)
-        {
-            $request->validate([
-                'payment_method' => 'required|in:qr,cod',
-                'notes' => 'nullable|string'
-            ]);
-
-            $cart = Session::get('cart', []);
-            if (empty($cart)) {
-                return redirect()->back()->with('error', 'Cart is empty!');
-            }
-
-            $total = 0;
-            foreach ($cart as $item) {
-                $total += $item['price'] * $item['quantity'];
-            }
-
-            $order = Order::create([
-                'user_id' => Auth::id(),
-                'total_amount' => $total,
-                'payment_method' => $request->payment_method,
-                'notes' => $request->notes
-            ]);
-
-            foreach ($cart as $productId => $item) {
-                OrderItem::create([
-                    'order_id' => $order->id,
-                    'product_id' => $productId,
-                    'quantity' => $item['quantity'],
-                    'price' => $item['price']
-                ]);
-            }
-
-            Session::forget('cart');
-            return redirect()->route('order.success', $order->id);
-        }
-
-        public function orderSuccess($orderId)
-        {
-            $order = Order::with('orderItems.product')->findOrFail($orderId);
-            return view('order-success', compact('order'));
-        }
-    }
